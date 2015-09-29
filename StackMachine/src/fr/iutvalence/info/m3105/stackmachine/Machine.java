@@ -26,10 +26,8 @@ public class Machine
 			this.programMemory.write(currentAddress, instruction.getOpCode());
 			currentAddress++;
 			int[] instructionParams = instruction.getParams();
-			if (instructionParams != null)
-			{
-				for (int instructionParam : instructionParams)
-				{
+			if (instructionParams != null){
+				for (int instructionParam : instructionParams){
 					this.programMemory.write(currentAddress, instructionParam);
 					currentAddress++;
 				}
