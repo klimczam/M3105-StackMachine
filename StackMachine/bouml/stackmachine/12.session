@@ -4,12 +4,14 @@ diagrams
     1021 804 100 4 0 0
 end
 show_stereotypes
-selected operation_ref 129804 // write
+selected attribute_ref 136972 // hexa2
 open
   class_ref 128268 // CPU
   class_ref 128396 // IO
   class_ref 128524 // Machine
   class_ref 128780 // Memory
   class_ref 128908 // Program
+  class_ref 135692 // Instruction
+  class_ref 135820 // Stack
 end
 end

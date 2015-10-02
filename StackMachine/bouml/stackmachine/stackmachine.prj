@@ -1,6 +1,6 @@
 format 76
 "stackmachine"
-  revision 1
+  revision 2
   modified_by 12 ""
 
 
@@ -211,6 +211,35 @@ ${members}}
 	
 	
       end
+
+      operation 136332 "clearStacks"
+	public explicit_return_type "void"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 136460 "setPC"
+	public explicit_return_type "void"
+	nparams 1
+	  param in name "adress" explicit_type "int"
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      classrelation 136460 // <association>
+	relation_ref 135692 // <association>
+      end
     end
 
     class 128396 "IO"
@@ -305,6 +334,48 @@ ${members}}
 	python_decl ""
 	idl_decl ""
       end
+
+      classrelation 134668 // <generalisation>
+	relation 134668 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 134668 // <generalisation>
+	  b parent class_ref 135436 // IOException
+      end
+
+      attribute 136460 "inStream"
+	private explicit_type "inputStream"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136588 "outStream"
+	private explicit_type "OutputStream"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136716 "errStream"
+	private explicit_type "OutputStream"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 137228 // <association>
+	relation_ref 136076 // <association>
+      end
     end
 
     class 128524 "Machine"
@@ -365,6 +436,112 @@ ${members}}
 	python_decl ""
 	idl_decl ""
       end
+
+      classrelation 134796 // <generalisation>
+	relation 134796 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 134796 // <generalisation>
+	  b parent class_ref 135564 // AddressOutOfBoundsException
+      end
+
+      classrelation 134924 // <generalisation>
+	relation 134924 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 134924 // <generalisation>
+	  b parent class_ref 128908 // Program
+      end
+
+      classrelation 135052 // <association>
+	relation 135052 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 135052 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 135180 // <association>
+      end
+
+      attribute 136076 "expStack"
+	private type class_ref 135820 // Stack
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136204 "callStack"
+	private type class_ref 135820 // Stack
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136332 "ioSystem"
+	private type class_ref 128396 // IO
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 136204 // <association>
+	relation_ref 135564 // <association>
+      end
+
+      classrelation 136332 // <association>
+	relation 135692 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136332 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136460 // <association>
+      end
+
+      classrelation 136716 // <association>
+	relation_ref 135820 // <association>
+      end
+
+      classrelation 136844 // <association>
+	relation 135948 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136844 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136972 // <association>
+      end
+
+      classrelation 137100 // <association>
+	relation 136076 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 137100 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 137228 // <association>
+      end
+
+      classrelation 137612 // <association>
+	relation_ref 136332 // <association>
+      end
     end
 
     class 128652 "MachineLauncher"
@@ -378,6 +555,65 @@ ${members}}
       idl_decl ""
       explicit_switch_type ""
       
+      classrelation 135308 // <association>
+	relation 135180 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 135308 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 135436 // <association>
+      end
+
+      classrelation 135564 // <association>
+	relation 135308 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 135564 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 135692 // <association>
+      end
+
+      classrelation 135820 // <association>
+	relation 135436 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 135820 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 135948 // <association>
+      end
+
+      classrelation 136076 // <association>
+	relation 135564 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136076 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136204 // <association>
+      end
+
+      classrelation 137356 // <generalisation>
+	relation 136204 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 137356 // <generalisation>
+	  b parent class_ref 128780 // Memory
+      end
+
+      classrelation 137868 // <association>
+	relation_ref 136460 // <association>
+      end
     end
 
     class 128780 "Memory"
@@ -415,7 +651,7 @@ ${members}}
 	public explicit_return_type "void"
 	nparams 2
 	  param in name "currentAddress" explicit_type "int"
-	  param in name "instructiion" explicit_type "int"
+	  param in name "instruction" explicit_type "int"
 	
 	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}${staticnl}{
   ${body}}
@@ -423,6 +659,66 @@ ${members}}
 	
 	
 	
+      end
+
+      attribute 136844 "hexa1"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136972 "hexa2"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 135692 // <association>
+	relation_ref 135308 // <association>
+      end
+
+      classrelation 136588 // <association>
+	relation 135820 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136588 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 136716 // <association>
+      end
+
+      classrelation 137484 // <association>
+	relation 136332 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 137484 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 137612 // <association>
+      end
+
+      classrelation 137740 // <association>
+	relation 136460 ----
+	  a role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 137740 // <association>
+	  b role_name "" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    classrelation_ref 137868 // <association>
       end
     end
 
@@ -460,6 +756,106 @@ ${members}}
 	
 	
 	
+      end
+
+      classrelation 135180 // <association>
+	relation_ref 135052 // <association>
+      end
+
+      classrelation 135436 // <association>
+	relation_ref 135180 // <association>
+      end
+    end
+
+    class 135436 "IOException"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 135564 "AddressOutOfBoundsException"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 135692 "Instruction"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 136588 "getOpCod"
+	public explicit_return_type "void"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      operation 136716 "getParams"
+	public explicit_return_type "void"
+	nparams 0
+	
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+      end
+
+      classrelation 136972 // <association>
+	relation_ref 135948 // <association>
+      end
+    end
+
+    class 135820 "Stack"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 135948 "integer"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      classrelation 135948 // <association>
+	relation_ref 135436 // <association>
       end
     end
   end
